@@ -1,2 +1,2 @@
-# my-public-project
-A collection of my projects.
+# My Projects
+A collection of my completed projects.
