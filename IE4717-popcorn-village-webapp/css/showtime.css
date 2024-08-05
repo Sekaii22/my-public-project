@@ -1,0 +1,64 @@
+#contents{
+	margin: 30px auto 0; 
+	width: 80%; 
+	min-width: 800px;
+	max-width: 1200px;
+}
+#movies_form {
+	display: flex;
+	justify-content: space-between;
+}
+.button {
+	border: none;
+	background-color: #a19f9c;
+	padding: 8px 40px;
+	border-radius: 10px 10px 0 0;
+	cursor: pointer;
+}
+.button:hover {
+	background-color: #979694;
+}
+.showtime_container {
+	background-color: #252525;
+	/*display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;*/
+}
+#showtimetable {
+	border-collapse: collapse;
+	margin: auto;
+	width: 100%;
+}
+#showtimetable tr {
+	border-bottom: 1px solid; 
+}
+#showtimetable td {
+	text-align: center;
+}
+#showtimetable img {
+	width: 180px;
+	height: 250px;
+	object-fit: fill;
+	transition: 0.2s ease;
+}
+.col-flex {
+	display: flex;
+	justify-content: space-evenly;
+}
+.button_time {
+	border: none;
+	background-color: #a19f9c;
+	color: #121212;
+	/*padding: 8px 40px;*/
+	cursor: pointer;
+	font-size: x-large;
+	border-style: solid;
+	border-width : 1px 1px 1px 1px;
+	text-decoration : none;
+	padding : 4px;
+	border-color : #000000
+}
+.button_time:hover {
+	background-color: #dadada;
+	color: #000000;
+}

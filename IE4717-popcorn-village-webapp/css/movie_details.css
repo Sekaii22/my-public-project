@@ -1,0 +1,43 @@
+#contents {
+    margin: 30px auto 30px; 
+    width: 80%; 
+    min-width:800px;
+    max-width: 1200px;
+}
+.media-flex-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.media-flex-wrapper img {
+    height: 400px;
+    width: 270px;
+}
+.media-flex-wrapper iframe {
+    height: 400px;
+    width: 711px;
+}
+table {
+    margin-top: 30px;
+}
+tr, td, th{
+    padding: 10px;
+    font-weight: normal;
+}
+th {
+    text-align: right;
+    font-size: 1.1em;
+    vertical-align: top;
+    width:100px;
+}
+caption {
+    text-align: left;
+}
+#book-btn {
+    width:100px; 
+    height:50px;
+    font-size: 1.1em;
+    background-color: #a5a5a5;
+}
+#book-btn:hover {
+    background-color: #979694;
+}

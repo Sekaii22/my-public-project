@@ -1,0 +1,23 @@
+table {
+	border-spacing: 0px;
+	margin: 30px auto; 
+	width: 80%; 
+	min-width: 800px;
+}
+table caption {
+	margin-bottom: 20px;
+}
+th {
+	width: 20%;
+	text-align: left;
+	padding: 10px;
+}
+td {
+	padding: 10px;
+}
+td a {
+	color: #6e6ef8;
+}
+thead {
+	background-color: #121212;
+}

@@ -1,0 +1,37 @@
+#contents{
+	margin: 30px auto 0; 
+	width: 80%; 
+	min-width: 800px;
+	max-width: 1000px;
+	text-align: center;
+}
+form {
+	display: inline-block;
+}
+td, th {
+	padding: 5px;
+}
+th {
+	text-align: left;
+}
+.login-wrapper  {
+	width: 50%;
+	border: 1px solid #a5a5a5;
+	display: inline-block;
+}
+table {
+	margin: 45px auto;
+}
+.regis-wrapper td, th {
+	padding: 7px;
+}
+.regis-wrapper tr td {
+	text-align: left;
+}
+.regis-wrapper tr th {
+	width: 120px;
+}
+.regis-wrapper {
+	width: 50%;
+	display: inline-block;
+}

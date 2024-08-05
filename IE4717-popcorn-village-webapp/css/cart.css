@@ -1,0 +1,49 @@
+#contents {
+	margin: 30px auto 0; 
+	width: 80%; 
+	min-width:800px;
+	max-width: 1200px;
+}
+.cart_display thead a {
+    color: #e4e4e4;
+}
+.cart_display table{
+    width: 100%;
+    margin: auto;
+}
+td, th {
+	padding: 5px
+}
+thead{
+	background-color: #121212;
+}
+tbody {
+	text-align: center;
+}
+tbody a {
+	color: #a83535;
+}
+tfoot td, th {
+	padding :8px;
+}
+i:hover {
+	background-color: rgba(0,0,0,0.3);
+}
+tbody tr:nth-of-type(odd) {
+	background-color: #313131;
+}
+.payment_details {
+	margin: 20px auto;
+}
+.payment_details h4{
+    text-decoration: underline;
+}
+input[type=text] {
+	width: 300px;
+	height: 28px;
+	margin: 2px auto;
+}
+input[type=submit] {
+	width: 100px;
+	height: 40px;
+}

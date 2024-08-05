@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Popcorn Village Example2</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/layoutnavheadfoot.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<style>
+		#contents {
+			margin: 30px auto 0; 
+			width: 80%; 
+			min-width:800px;
+			max-width: 1200px;
+		}
+		.movie-flex-wrapper {
+			display: flex;
+			justify-content: space-between;
+		}
+		.movie-flex-wrapper img {
+			width: 15%;
+		}
+		.movie-flex-wrapper #movie-text {
+			width: 82%;
+		}
+		table {
+			margin: 15px auto;
+            border-spacing: 0px;
+			width: 90%;
+        }
+        th {
+            width: 20%;
+            text-align: left;
+            padding: 10px;
+        }
+        td {
+            padding: 10px;
+        }
+        thead, tfoot {
+            background-color: #d3d3d3;
+        }
+		tbody tr:nth-of-type(odd) {
+			background-color: #e9e8e8;
+		}
+		.cinema-wrapper {
+			text-align: center;
+			margin-bottom: 20px;
+		}
+		.cinema-wrapper h3 {
+			margin-bottom: 0;
+		}
+		.cinema {
+			margin: 20px auto; 
+			width: 60%; 
+			border: 1px solid black;
+			display: flex;
+			justify-content: space-evenly;
+		}
+		.cinema-left, .cinema-right {
+			display: flex;
+			flex-direction: column;
+		}
+		.seat {
+			cursor: pointer;
+			width: 20px;
+			height: 20px;
+			background-color: #57b15b;
+			margin: 2px;
+			display: inline-block;
+		}
+		.seat.active {
+			background-color: #4047a7;
+		}
+		.seat:hover {
+			background-color: #9c9c9c;
+		}
+		#add-btn {
+			width:100px; 
+    		height:30px;
+		}
+	</style>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function(event) {
+			var seats = document.getElementsByClassName("seat");
+			var seat_form_input = document.getElementById("selected-seats");
+			var tbody = document.getElementById("summary-table").getElementsByTagName('tbody')[0];
+			var totaltd = document.getElementById("total");
+			var price = 5;
+			var totalprc = 0;
+			var seats_selected;
+
+			// setting handler for seats boxes
+			for (var i = 0; i < seats.length; i++){
+				seats[i].onclick =  function(){
+					// toggle active class to change css
+					this.classList.toggle('active');
+					
+					// delete old tbody and replace with new empty tbody
+					var new_tbody = document.createElement('tbody');
+					tbody.parentNode.replaceChild(new_tbody, tbody)
+					tbody = document.getElementById("summary-table").getElementsByTagName('tbody')[0];
+
+					// get all div with active class toggled
+					var toggledseats = document.getElementsByClassName("seat active");
+
+					// reset variables
+					seats_selected = "";
+					totalprc = 0;
+
+					// insert row for each active div element found
+					for (var k=0; k<toggledseats.length; k++){
+						var row = tbody.insertRow(-1);
+						var seatcell = row.insertCell(0);
+						var qtycell = row.insertCell(1);
+						var pricecell = row.insertCell(2);
+
+						seatcell.innerHTML = toggledseats[k].dataset.seatnum;
+						qtycell.innerHTML = "1";
+						pricecell.innerHTML = price;
+
+						// update variables
+						seats_selected += toggledseats[k].dataset.seatnum + " ";
+						totalprc += price;
+					}
+					
+					// change input in form
+					seat_form_input.value = seats_selected;
+
+					// change total price html
+					totaltd.innerHTML = totalprc;
+				}
+			}
+        });
+	</script>
+</head>
+
+<body>
+	<div class="container">
+		<nav>
+			<a href="index.html">
+				<i class="material-icons" style="font-size: 40px;">menu</i>
+			</a>
+			<a href="index.html">
+				<i class="material-icons" style="font-size: 40px;">home</i>
+				<p>Home</p>
+			</a>
+			<a href="index.html">
+				<i class="material-icons" style="font-size: 40px;">movie</i>
+				<p>Movies</p>
+			</a>
+			<a href="index.html">
+				<i class="material-icons" style="font-size: 40px;">view_timeline</i>
+				<p>Showtime</p>
+			</a>
+			<a href="index.html">
+				<i class="material-icons" style="font-size: 40px;">confirmation_number</i>
+				<p>Check Bookings</p>
+			</a>
+			<a href="index.html">
+				<i class="material-icons" style="font-size: 40px;">contact_mail</i>
+				<p>Contact Us</p>
+			</a>
+		</nav>
+	
+		<div id="rightcol">
+			<header>
+				<div id="headflex">
+					<div id="headcol">
+						<h1>Popcorn Village</h1>
+					</div>
+					<div id="headicons">
+						<!-- <h4>cart and social</h4> -->
+						<a href="index.html" style="display: inline-block; margin: 20px 0;">
+							<i class="material-icons" style="font-size: 30px; color: #000000;">shopping_cart</i>
+						</a>
+					</div>
+					<div id="shortlogin">
+						<h4>login</h4>
+					</div>
+				</div>
+			</header>
+	
+			<!--contents-->
+			<div id="contents">
+				<div id="movie-flex-wrapper">
+					<div class="movie-flex-wrapper">
+						<img src="https://images.nintendolife.com/d75c7f6b04a67/super-mario-bros-movie-everything-we-know.900x.jpg">
+						<div id="movie-text">
+							<h2>Movie Title</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						</div>
+					</div>
+
+					<div class="cinema-wrapper">
+						<h3><u>Select seats:</u></h3>
+						
+						<form method="post" action="booking.php" id="update "></form>
+						<div class="cinema">
+							<div class="cinema-left">
+								<div class="row-A">
+									<div class="seat" data-seatnum="A1"></div>
+									<div class="seat" data-seatnum="A2"></div>
+									<div class="seat" data-seatnum="A3"></div>
+									<div class="seat" data-seatnum="A4"></div>
+									<div class="seat" data-seatnum="A5"></div>
+									<div class="seat" data-seatnum="A6"></div>
+									<div class="seat" data-seatnum="A7"></div>
+								</div>
+
+								<div class="row-B">
+									<div class="seat" data-seatnum="B1"></div>
+									<div class="seat" data-seatnum="B2"></div>
+									<div class="seat" data-seatnum="B3"></div>
+									<div class="seat" data-seatnum="B4"></div>
+									<div class="seat" data-seatnum="B5"></div>
+									<div class="seat" data-seatnum="B6"></div>
+									<div class="seat" data-seatnum="B7"></div>
+								</div>
+								
+								<div class="row-C">
+									<div class="seat" data-seatnum="C1"></div>
+									<div class="seat" data-seatnum="C2"></div>
+									<div class="seat" data-seatnum="C3"></div>
+									<div class="seat" data-seatnum="C4"></div>
+									<div class="seat" data-seatnum="C5"></div>
+									<div class="seat" data-seatnum="C6"></div>
+									<div class="seat" data-seatnum="C7"></div>
+								</div>
+
+								<div class="row-D">
+									<div class="seat" data-seatnum="D1"></div>
+									<div class="seat" data-seatnum="D2"></div>
+									<div class="seat" data-seatnum="D3"></div>
+									<div class="seat" data-seatnum="D4"></div>
+									<div class="seat" data-seatnum="D5"></div>
+									<div class="seat" data-seatnum="D6"></div>
+									<div class="seat" data-seatnum="D7"></div>
+								</div>
+
+								<div class="row-E">
+									<div class="seat" data-seatnum="E1"></div>
+									<div class="seat" data-seatnum="E2"></div>
+									<div class="seat" data-seatnum="E3"></div>
+									<div class="seat" data-seatnum="E4"></div>
+									<div class="seat" data-seatnum="E5"></div>
+									<div class="seat" data-seatnum="E6"></div>
+									<div class="seat" data-seatnum="E7"></div>
+								</div>
+
+								<div class="row-F">
+									<div class="seat" data-seatnum="F1"></div>
+									<div class="seat" data-seatnum="F2"></div>
+									<div class="seat" data-seatnum="F3"></div>
+									<div class="seat" data-seatnum="F4"></div>
+									<div class="seat" data-seatnum="F5"></div>
+									<div class="seat" data-seatnum="F6"></div>
+									<div class="seat" data-seatnum="F7"></div>
+								</div>
+
+								<div class="row-G">
+									<div class="seat" data-seatnum="G1"></div>
+									<div class="seat" data-seatnum="G2"></div>
+									<div class="seat" data-seatnum="G3"></div>
+									<div class="seat" data-seatnum="G4"></div>
+									<div class="seat" data-seatnum="G5"></div>
+									<div class="seat" data-seatnum="G6"></div>
+									<div class="seat" data-seatnum="G7"></div>
+								</div>
+							</div>
+
+							<div class="cinema-right">
+								<div class="row-A">
+									<div class="seat" data-seatnum="A8"></div>
+									<div class="seat" data-seatnum="A9"></div>
+									<div class="seat" data-seatnum="A10"></div>
+									<div class="seat" data-seatnum="A11"></div>
+									<div class="seat" data-seatnum="A12"></div>
+									<div class="seat" data-seatnum="A13"></div>
+									<div class="seat" data-seatnum="A14"></div>
+								</div>
+
+								<div class="row-B">
+									<div class="seat" data-seatnum="B8"></div>
+									<div class="seat" data-seatnum="B9"></div>
+									<div class="seat" data-seatnum="B10"></div>
+									<div class="seat" data-seatnum="B11"></div>
+									<div class="seat" data-seatnum="B12"></div>
+									<div class="seat" data-seatnum="B13"></div>
+									<div class="seat" data-seatnum="B14"></div>
+								</div>
+
+								<div class="row-C">
+									<div class="seat" data-seatnum="C8"></div>
+									<div class="seat" data-seatnum="C9"></div>
+									<div class="seat" data-seatnum="C10"></div>
+									<div class="seat" data-seatnum="C11"></div>
+									<div class="seat" data-seatnum="C12"></div>
+									<div class="seat" data-seatnum="C13"></div>
+									<div class="seat" data-seatnum="C14"></div>
+								</div>
+
+								<div class="row-D">
+									<div class="seat" data-seatnum="D8"></div>
+									<div class="seat" data-seatnum="D9"></div>
+									<div class="seat" data-seatnum="D10"></div>
+									<div class="seat" data-seatnum="D11"></div>
+									<div class="seat" data-seatnum="D12"></div>
+									<div class="seat" data-seatnum="D13"></div>
+									<div class="seat" data-seatnum="D14"></div>
+								</div>
+
+								<div class="row-E">
+									<div class="seat" data-seatnum="E8"></div>
+									<div class="seat" data-seatnum="E9"></div>
+									<div class="seat" data-seatnum="E10"></div>
+									<div class="seat" data-seatnum="E11"></div>
+									<div class="seat" data-seatnum="E12"></div>
+									<div class="seat" data-seatnum="E13"></div>
+									<div class="seat" data-seatnum="E14"></div>
+								</div>
+
+								<div class="row-F">
+									<div class="seat" data-seatnum="F8"></div>
+									<div class="seat" data-seatnum="F9"></div>
+									<div class="seat" data-seatnum="F10"></div>
+									<div class="seat" data-seatnum="F11"></div>
+									<div class="seat" data-seatnum="F12"></div>
+									<div class="seat" data-seatnum="F13"></div>
+									<div class="seat" data-seatnum="F14"></div>
+								</div>
+
+								<div class="row-G">
+									<div class="seat" data-seatnum="G8"></div>
+									<div class="seat" data-seatnum="G9"></div>
+									<div class="seat" data-seatnum="G10"></div>
+									<div class="seat" data-seatnum="G11"></div>
+									<div class="seat" data-seatnum="G12"></div>
+									<div class="seat" data-seatnum="G13"></div>
+									<div class="seat" data-seatnum="G14"></div>
+								</div>
+							</div>
+						</div>
+			
+						<table border="1" id="summary-table">
+							<thead>
+								<tr>
+									<th>Seat</th>
+									<th>Qty</th>
+									<th>Ticket Price ($)</th>
+								</tr>
+							</thead>
+
+							<tbody>
+							</tbody>
+
+							<tfoot>
+								<tr>
+									<th colspan="2" style="text-align: right;">Total: $</th>
+									<td id="total">0</td>
+								</tr>
+							</tfoot>
+						</table>
+						<div style="text-align: right; width: 90%; margin: auto;">
+							<form action="cart.php" method="post">
+								<input type="text" id="selected-seats" name="selected-seats" value="" hidden required>
+								<input type="submit" id="add-btn" name="add-btn" value="Add to cart">
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--end of contents-->
+
+			<footer>
+				<div id="footflex">
+					<div class="footercol">
+						<i>Copyright &copy; 2022 popcorn@village.com</i>
+					</div>
+					<div class="footercol">
+						<i>social media</i>
+					</div>
+					<div class="footercol">
+						<i>supported payments</i>
+					</div>
+				</div>
+			</footer>
+		</div> <!--close rightcol div-->
+	</div> <!--close container div-->
+</body>
+</html>

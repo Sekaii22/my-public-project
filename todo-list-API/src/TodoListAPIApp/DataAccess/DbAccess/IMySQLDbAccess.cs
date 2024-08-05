@@ -1,0 +1,9 @@
+﻿
+namespace DataAccess.DbAccess
+{
+    public interface IMySQLDbAccess
+    {
+        Task<IEnumerable<T>> LoadData<T, U>(string storedProcedure, U parameters, string connectionId = "Default");
+        Task SaveDate<T>(string storedProcedure, T parameters, string connectionId = "Default");
+    }
+}

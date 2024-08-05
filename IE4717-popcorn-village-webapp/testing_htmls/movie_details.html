@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Popcorn Village Example2</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/layoutnavheadfoot.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<style>
+		#contents{
+			margin: 30px auto 0; 
+			width: 80%; 
+			min-width:800px;
+			max-width: 1200px;
+		}
+		.media-flex-wrapper {
+			display: flex;
+			justify-content: space-between;
+		}
+		.media-flex-wrapper img {
+			height: 400px;
+			width: 27%;
+		}
+		.media-flex-wrapper iframe {
+			height: 400px;
+			width: 72%;
+		}
+		table {
+			margin-top: 30px;
+		}
+		tr, td, th{
+			padding: 10px;
+			font-weight: normal;
+		}
+		th {
+			text-align: right;
+			font-size: 1.1em;
+			vertical-align: top;
+			width:100px;
+		}
+		caption {
+			text-align: left;
+		}
+		#book-btn {
+			width:100px; 
+			height:50px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<nav>
+			<a href="index.html">
+				<i class="material-icons" style="font-size: 40px;">menu</i>
+			</a>
+			<a href="index.html">
+				<i class="material-icons" style="font-size: 40px;">home</i>
+				<p>Home</p>
+			</a>
+			<a href="index.html">
+				<i class="material-icons" style="font-size: 40px;">movie</i>
+				<p>Movies</p>
+			</a>
+			<a href="index.html">
+				<i class="material-icons" style="font-size: 40px;">view_timeline</i>
+				<p>Showtime</p>
+			</a>
+			<a href="index.html">
+				<i class="material-icons" style="font-size: 40px;">confirmation_number</i>
+				<p>Check Bookings</p>
+			</a>
+			<a href="index.html">
+				<i class="material-icons" style="font-size: 40px;">contact_mail</i>
+				<p>Contact Us</p>
+			</a>
+		</nav>
+	
+		<div id="rightcol">
+			<header>
+				<div id="headflex">
+					<div id="headcol">
+						<h1>Popcorn Village</h1>
+					</div>
+					<div id="headicons">
+						<!-- <h4>cart and social</h4> -->
+						<a href="index.html" style="display: inline-block; margin: 20px 0;">
+							<i class="material-icons" style="font-size: 30px; color: #000000;">shopping_cart</i>
+						</a>
+					</div>
+					<div id="shortlogin">
+						<h4>login</h4>
+					</div>
+				</div>
+			</header>
+	
+			<!--contents-->
+			<div id="contents">
+				<div class="detail-wrapper">
+					<div class="media-flex-wrapper">
+						<img src="https://images.nintendolife.com/d75c7f6b04a67/super-mario-bros-movie-everything-we-know.900x.jpg">
+						<iframe src="https://www.youtube.com/embed/DUnQcJz76Ck" 
+							title="YouTube video player" frameborder="0" 
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+							allowfullscreen>
+						</iframe>
+					</div>
+
+					<div class="details-table">
+						<table border="0">
+							<caption><h2><b>Movie Title</b></h2></caption>
+							<tr>
+								<th>Synopsis</th>
+								<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</td>
+								<td style="width:100px; vertical-align: top;">
+									<form action="showtime.html" method="post" id="book-form">
+										<input type="text" id="movieid_selected" name="movieid_selected" value="" hidden>
+										<input type="submit" id="book-btn" value="Book">
+									</form>
+								</td>
+							</tr>
+							<tr>
+								<th style="font-weight: bold;"><u>Details</u></th>
+								<td colspan="2"></td>
+							</tr>
+							<tr>
+								<th>Rating:</th>
+								<td colspan="2">PG13</td>
+							</tr>
+							<tr>
+								<th>Run time:</th>
+								<td colspan="2">2hr</td>
+							</tr>
+							<tr>
+								<th>Cast:</th>
+								<td colspan="2">Tom, Jerry</td>
+							</tr>
+							<tr>
+								<th>Director:</th>
+								<td colspan="2">Conan Dolye</td>
+							</tr>
+							<tr>
+								<th>Genre:</th>
+								<td colspan="2">Comedy, Mystery</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			<!--end of contents-->
+
+			<footer>
+				<div id="footflex">
+					<div class="footercol">
+						<i>Copyright &copy; 2022 popcorn@village.com</i>
+					</div>
+					<div class="footercol">
+						<i>social media</i>
+					</div>
+					<div class="footercol">
+						<i>supported payments</i>
+					</div>
+				</div>
+			</footer>
+		</div> <!--close rightcol div-->
+	</div> <!--close container div-->
+</body>
+</html>
